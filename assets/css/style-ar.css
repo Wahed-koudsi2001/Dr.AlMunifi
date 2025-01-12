@@ -1,0 +1,195 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+* {
+    font-family: "Tajawal", sans-serif;
+}
+
+.header-contact-info li {
+    margin-right: 0;
+    margin-left: 20px;
+}
+.header-contact-info li i {
+    margin-right: 0;
+    margin-left: 4px;
+}
+.header-right-content .top-header-social li {
+    margin-right: 0;
+    margin-left: 4px;
+}
+.header-right-content {
+    text-align: initial;
+    text-align: left;
+}
+.fovia-nav .navbar .others-options .btn {
+    margin-left: initial;
+    margin-right: 15px;
+}
+.about-content {
+    padding-left: initial;
+    padding-right: 50px;
+}
+.about-content ul {
+    padding-right: 0;
+}
+.about-content ul li {
+    padding-left: initial;
+    padding-right: 34px;
+}
+.about-content ul li i {
+    left: initial;
+    right: 0;
+}
+.our-mission-content ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style-type: none;
+    margin-right: -15px;
+    margin-left: -15px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.our-mission-content ul li {
+    padding-right: 0;
+}
+.circle-shape1 {
+    left: initial;
+    right: 80px;
+}
+.circle-shape2 {
+    right: 0;
+    left: initial;
+}
+
+.shape2 {
+    right: initial;
+    left: 0;
+}
+.shape3 {
+    left: initial;
+    right: 0;
+}
+.shape1 {
+    right: initial;
+    left: 25px;
+}
+.circle-shape2 img,
+.circle-shape1 img,
+.shape1 img,
+.shape2 img,
+.shape3 img {
+    opacity: 1;
+}
+.navbar-brand {
+    margin-right: 0;
+}
+.main-services-box h3::before {
+    left: initial;
+    right: 0;
+}
+.faq-accordion {
+    padding-left: initial;
+    padding-right: 50px;
+}
+.faq-accordion .accordion {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+.faq-accordion .accordion {
+    padding-right: 0;
+}
+.partner-item:nth-child(6) {
+    margin-left: initial;
+    margin-right: 10%;
+}
+
+.our-scrolling-ticker {
+    direction: rtl;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 18px 0;
+}
+
+.scrolling-ticker-box {
+    --gap: 40px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: var(--gap);
+    align-items: center;
+}
+
+.scrolling-content {
+    flex-shrink: 0;
+    display: flex;
+    gap: var(--gap);
+    min-width: 100%;
+    animation: scroll-rtl 50s linear infinite;
+    -webkit-animation: scroll-rtl 50s linear infinite;
+}
+
+.scrolling-content span {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 500;
+    color: #000;
+    vertical-align: middle;
+}
+
+.scrolling-content span img {
+    width: 15px;
+    max-width: 24px;
+    margin-left: 40px;
+}
+
+@keyframes scroll-rtl {
+    from {
+        transform: translateX(calc(100% - var(--gap)));
+        -webkit-transform: translateX(calc(100% - var(--gap)));
+        -moz-transform: translateX(calc(100% - var(--gap)));
+        -ms-transform: translateX(calc(100% - var(--gap)));
+        -o-transform: translateX(calc(100% - var(--gap)));
+    }
+
+    to {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -moz-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -o-transform: translateX(0);
+    }
+}
+.single-footer-widget .social,
+.single-footer-widget .departments-list,
+.single-footer-widget .links-list,
+.single-footer-widget .opening-hours {
+    padding-right: 0;
+}
+
+@media only screen and (max-width: 767px) {
+    .about-content,
+    .our-mission-content ul,
+    .faq-accordion {
+        padding-right: 0;
+    }
+    .partner-item:nth-child(6) {
+        margin-right: initial;
+    }
+}
+.single-footer-widget .opening-hours li span {
+    float: left;
+}
+.page-title-content ul {
+    padding-right: 0;
+    padding-left: 0;
+}
+.page-title-content ul li::before {
+    right: initial;
+    left: -13px;
+}
+.header-contact-info {
+    padding-right: 0;
+}
