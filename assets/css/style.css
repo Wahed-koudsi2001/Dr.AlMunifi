@@ -3447,9 +3447,18 @@ blockquote p,
   font-weight: 500;
   font-size: 20px !important;
 }
-blockquote cite,
+/* blockquote cite,
 .blockquote cite {
   display: none;
+} */
+.article-image {
+  width: 100%;
+  height: 400px;
+}
+.article-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 blockquote::before,
 .blockquote::before {
@@ -3457,11 +3466,12 @@ blockquote::before,
   content: "\f10e";
   position: absolute;
   left: 50px;
-  top: -50px;
+  top: 50%;
   z-index: -1;
   font-family: "Font Awesome 5 Free";
   font-size: 140px;
   font-weight: 900;
+  transform: translateY(-50%);
 }
 blockquote::after,
 .blockquote::after {
@@ -5694,6 +5704,7 @@ Footer Area CSS
 
 .single-footer-widget .logo a {
   display: inline-block;
+  margin-bottom: 25px;
 }
 .single-footer-widget .logo p {
   color: #cecece;
@@ -5714,11 +5725,11 @@ Footer Area CSS
 .single-footer-widget .social li a {
   display: block;
   color: #ffffff;
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background-color: #3a3c45;
-  font-size: 14px;
+  font-size: 20px;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;

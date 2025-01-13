@@ -209,3 +209,26 @@
 .contact-info ul {
     padding-right: 0;
 }
+.blog-details-desc .article-content .wp-block-gallery.columns-3 {
+    padding-right: 0;
+}
+.blog-details-desc .article-content .features-list {
+    padding-right: 0;
+}
+.blog-details-desc .article-content .features-list li {
+    padding-left: initial;
+    padding-right: 34px;
+}
+.blog-details-desc .article-content .features-list li i {
+    right: 0;
+    left: initial;
+}
+blockquote::before,
+.blockquote::before {
+    right: 50px;
+}
+blockquote::after,
+.blockquote::after {
+    right: 0;
+    left: initial;
+}
