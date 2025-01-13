@@ -194,3 +194,18 @@
 .header-contact-info {
     padding-right: 0;
 }
+.approach-content ul {
+    padding-right: 0;
+}
+.approach-content ul li {
+    padding-right: 34px;
+    padding-left: initial;
+    text-align: right;
+}
+.approach-content ul li i {
+    left: initial;
+    right: 0;
+}
+.contact-info ul {
+    padding-right: 0;
+}
