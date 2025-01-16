@@ -320,9 +320,8 @@
     observer.observe(funFactsSection);
 
     $(document).ready(function () {
-        // Show the result box on form submit
         $('#bmiForm').on('submit', function (e) {
-            e.preventDefault(); // Prevent form submission
+            e.preventDefault(); 
 
             const heightInput = $('#height').val();
             const weightInput = $('#weight').val();
@@ -333,30 +332,39 @@
             }
 
             const heightInMeters = heightInput / 100;
-
             const bmi = (weightInput / (heightInMeters * heightInMeters)).toFixed(2);
 
             let category = '';
+            let percentage = 0; 
+
             if (bmi < 18.5) {
                 category = 'نقص الوزن';
+                percentage = (bmi / 18.5) * 25; 
             } else if (bmi >= 18.5 && bmi < 24.9) {
                 category = 'وزن طبيعي';
+                percentage = 25 + ((bmi - 18.5) / (24.9 - 18.5)) * 25; 
             } else if (bmi >= 25 && bmi < 29.9) {
                 category = 'زيادة الوزن';
+                percentage = 50 + ((bmi - 25) / (29.9 - 25)) * 25;
             } else {
                 category = 'السمنة';
+                percentage = 75 + ((bmi - 29.9) / 10) * 25;
             }
 
-            $('.status').text(`مؤشر كتلة الجسم: ${bmi} - ${category}`);
+            percentage = Math.min(Math.max(percentage, 0), 100); 
+
+            $('.status').text(`مؤشر كتلة جسمك: ${bmi} - ${category}`);
             $('.status').css('background-color', bmi < 18.5 ? 'lightblue' :
                 bmi < 24.9 ? 'lightgreen' :
                     bmi < 29.9 ? 'yellow' : 'red');
             $('.layout').fadeIn();
+
+            $('.calc_info_line_result_wrapper').css('right', `${percentage}%`);
         });
 
         // Close the result box on "X" click
         $('.fa-xmark').on('click', function () {
-            $('.layout').fadeOut();
+            resetLayout();
         });
 
         // Close the result box if clicked outside the .result box
@@ -365,10 +373,19 @@
             const resultBox = $('.result');
 
             if (layout.is(':visible') && !resultBox.is(e.target) && resultBox.has(e.target).length === 0) {
-                layout.fadeOut();
+                resetLayout();
             }
         });
+
+        // Function to reset the layout and styles
+        function resetLayout() {
+            $('.layout').fadeOut();
+            $('.calc_info_line_result_wrapper').css('right', '0'); // Reset the position
+        }
     });
+
+
+
 
     /* Popup Video */
     if ($('.popup-video').length) {
@@ -396,11 +413,43 @@
         },
         zoom: {
             enabled: true,
-            duration: 300, // don't foget to change the duration also in CSS
+            duration: 300,
             opener: function (element) {
                 return element.find('img');
             }
         }
     });
+
+    // $(document).ready(function () {
+    //     // Disable Ctrl+U
+    //     $(document).on("keydown", function (event) {
+    //         if (event.ctrlKey && event.key.toLowerCase() === "u") {
+    //             event.preventDefault();
+    //             alert("View Source is disabled!");
+    //         }
+    //         // Disable Ctrl+Shift+I (Developer Tools)
+    //         if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === "i") {
+    //             event.preventDefault();
+    //             alert("Developer Tools are disabled!");
+    //         }
+    //         // Disable Ctrl+Shift+C (Inspect Element)
+    //         if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === "c") {
+    //             event.preventDefault();
+    //             alert("Inspect Element is disabled!");
+    //         }
+    //         // Disable F12 (Developer Tools)
+    //         if (event.key === "F12") {
+    //             event.preventDefault();
+    //             alert("Developer Tools are disabled!");
+    //         }
+    //     });
+
+    //     // Disable right-click
+    //     $(document).on("contextmenu", function (event) {
+    //         event.preventDefault();
+    //         alert("Right-click is disabled!");
+    //     });
+    // });
+
 
 }(jQuery));

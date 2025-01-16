@@ -232,3 +232,15 @@ blockquote::after,
     right: 0;
     left: initial;
 }
+.services-details-desc .services-features-list li {
+    padding-right: 34px;
+    padding-left: initial;
+}
+.services-details-desc .services-features-list li i {
+    right: 0;
+    left: initial;
+}
+.services-details-desc .wp-block-gallery.columns-3,
+.services-details-desc .services-features-list {
+    padding-right: 0;
+}
