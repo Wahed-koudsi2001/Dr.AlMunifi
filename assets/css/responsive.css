@@ -725,7 +725,7 @@
         padding: 12px 30px 10px;
     }
     .page-title-area {
-        height: 100%;
+        height: calc(100vh - 83px);
         padding-top: 70px;
         padding-bottom: 70px;
     }

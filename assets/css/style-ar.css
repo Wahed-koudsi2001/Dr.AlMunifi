@@ -1,9 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
-
-* {
-    font-family: "Tajawal", sans-serif;
+@font-face {
+    font-family: "Graphik Arabic Medium";
+    src: url("../fonts/Graphik_Arabic_Medium.otf") format("opentype");
 }
 
+* {
+    font-family: "Graphik Arabic Medium", sans-serif;
+}
 .header-contact-info li {
     margin-right: 0;
     margin-left: 20px;
