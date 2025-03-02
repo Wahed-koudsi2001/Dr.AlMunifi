@@ -283,45 +283,10 @@
         $('.preloader').addClass('preloader-deactivate');
     });
 
-    // Counter Animation Function
-    function animateCounter(el) {
-        const target = +el.getAttribute('data-count');
-        const duration = 2000;
-        const stepTime = Math.abs(Math.floor(duration / target));
-        let current = 0;
-
-        const timer = setInterval(() => {
-            current++;
-            el.textContent = current;
-            if (current >= target) {
-                clearInterval(timer);
-            }
-        }, stepTime);
-    }
-
-
-    const funFactsSection = document.querySelector('.fun-facts-area');
-    const counters = document.querySelectorAll('.counter');
-
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                counters.forEach(counter => {
-                    if (!counter.classList.contains('started')) {
-                        counter.classList.add('started');
-                        animateCounter(counter);
-                    }
-                });
-                observer.disconnect();
-            }
-        });
-    });
-
-    observer.observe(funFactsSection);
 
     $(document).ready(function () {
         $('#bmiForm').on('submit', function (e) {
-            e.preventDefault(); 
+            e.preventDefault();
 
             const heightInput = $('#height').val();
             const weightInput = $('#weight').val();
@@ -335,28 +300,37 @@
             const bmi = (weightInput / (heightInMeters * heightInMeters)).toFixed(2);
 
             let category = '';
-            let percentage = 0; 
+            let percentage = 0;
 
             if (bmi < 18.5) {
-                category = 'نقص الوزن';
-                percentage = (bmi / 18.5) * 25; 
-            } else if (bmi >= 18.5 && bmi < 24.9) {
-                category = 'وزن طبيعي';
-                percentage = 25 + ((bmi - 18.5) / (24.9 - 18.5)) * 25; 
-            } else if (bmi >= 25 && bmi < 29.9) {
-                category = 'زيادة الوزن';
-                percentage = 50 + ((bmi - 25) / (29.9 - 25)) * 25;
+                category = 'وزن ناقص';
+                percentage = (bmi / 18.5) * 16.666;
+            } else if (bmi >= 18.5 && bmi < 25) {
+                category = 'وزن صحي';
+                percentage = 16.666 + ((bmi - 18.5) / (24.9 - 18.5)) * 16.666;
+            } else if (bmi >= 25 && bmi < 30) {
+                category = 'وزن زائد';
+                percentage = 33.333 + ((bmi - 25) / (29.9 - 25)) * 16.666;
+            } else if (bmi >= 30 && bmi < 35) {
+                category = 'سمنة الدرجة الأولى';
+                percentage = 50 + ((bmi - 30) / (34.9 - 30)) * 16.666;
+            } else if (bmi >= 35 && bmi < 40) {
+                category = 'سمنة الدرجة الثانية';
+                percentage = 66.666 + ((bmi - 35) / (39.9 - 35)) * 16.666;
             } else {
-                category = 'السمنة';
-                percentage = 75 + ((bmi - 29.9) / 10) * 25;
+                category = 'سمنة درجة ثالثة';
+                percentage = 83.333 + ((bmi - 40) / 10) * 16.666;
             }
 
-            percentage = Math.min(Math.max(percentage, 0), 100); 
+            percentage = Math.min(Math.max(percentage, 0), 100);
 
             $('.status').text(`مؤشر كتلة جسمك: ${bmi} - ${category}`);
-            $('.status').css('background-color', bmi < 18.5 ? 'lightblue' :
-                bmi < 24.9 ? 'lightgreen' :
-                    bmi < 29.9 ? 'yellow' : 'red');
+            $('.status').css('background-color',
+                category === 'وزن ناقص' ? 'lightblue' :
+                    category === 'وزن صحي' ? 'lightgreen' :
+                        category === 'وزن زائد' ? 'yellow' :
+                            category === 'سمنة الدرجة الأولى' ? 'orange' :
+                                category === 'سمنة الدرجة الثانية' ? 'red' : 'darkred');
             $('.layout').fadeIn();
 
             $('.calc_info_line_result_wrapper').css('right', `${percentage}%`);
@@ -377,10 +351,9 @@
             }
         });
 
-        // Function to reset the layout and styles
         function resetLayout() {
             $('.layout').fadeOut();
-            $('.calc_info_line_result_wrapper').css('right', '0'); // Reset the position
+            $('.calc_info_line_result_wrapper').css('right', '0');
         }
     });
 
