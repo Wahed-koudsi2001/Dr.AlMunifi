@@ -312,13 +312,13 @@
                 category = 'وزن زائد';
                 percentage = 33.333 + ((bmi - 25) / (29.9 - 25)) * 16.666;
             } else if (bmi >= 30 && bmi < 35) {
-                category = 'سمنة الدرجة الأولى';
+                category = 'سمنة من الدرجة الأولى';
                 percentage = 50 + ((bmi - 30) / (34.9 - 30)) * 16.666;
             } else if (bmi >= 35 && bmi < 40) {
-                category = 'سمنة الدرجة الثانية';
+                category = 'سمنة من الدرجة الثانية';
                 percentage = 66.666 + ((bmi - 35) / (39.9 - 35)) * 16.666;
             } else {
-                category = 'سمنة درجة ثالثة';
+                category = 'سمنة من درجة ثالثة';
                 percentage = 83.333 + ((bmi - 40) / 10) * 16.666;
             }
 
