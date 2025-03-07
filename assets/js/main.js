@@ -112,56 +112,7 @@
         });
     });
 
-    // Feedback Carousel
-    var $imagesSlider = $(".feedback-slides .client-feedback>div"),
-        $thumbnailsSlider = $(".client-thumbnails>div");
-    // Images Options
-    $imagesSlider.slick({
-        speed: 300,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        cssEase: 'linear',
-        fade: true,
-        autoplay: true,
-        draggable: true,
-        rtl: true,
-        asNavFor: ".client-thumbnails>div",
-        prevArrow: '.client-feedback .prev-arrow',
-        nextArrow: '.client-feedback .next-arrow'
-    });
-    // Thumbnails Options
-    $thumbnailsSlider.slick({
-        speed: 300,
-        rtl: true,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        cssEase: 'linear',
-        autoplay: true,
-        centerMode: true,
-        draggable: false,
-        focusOnSelect: true,
-        asNavFor: ".feedback-slides .client-feedback>div",
-        prevArrow: '.client-thumbnails .prev-arrow',
-        nextArrow: '.client-thumbnails .next-arrow',
-    });
-    var $caption = $('.feedback-slides .caption');
-    var captionText = $('.client-feedback .slick-current img').attr('alt');
-    updateCaption(captionText);
-    $imagesSlider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
-        $caption.addClass('hide');
-    });
-    $imagesSlider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
-        captionText = $('.client-feedback .slick-current img').attr('alt');
-        updateCaption(captionText);
-    });
-    function updateCaption(text) {
-        // If empty, add a no breaking space
-        if (text === '') {
-            text = '&nbsp;';
-        }
-        $caption.html(text);
-        $caption.removeClass('hide');
-    }
+
 
     // Tabs
     (function ($) {
@@ -283,16 +234,75 @@
         $('.preloader').addClass('preloader-deactivate');
     });
 
-
     $(document).ready(function () {
+        // Translation object
+        const translations = {
+            en: {
+                resultTitle: "Result",
+                underweight: "Underweight",
+                healthy: "Healthy",
+                overweight: "Overweight",
+                obese: "Obese",
+                yourBmi: "Your BMI:",
+                categories: {
+                    underweight: "Underweight",
+                    healthy: "Healthy Weight",
+                    overweight: "Overweight",
+                    obese1: "Class I Obesity",
+                    obese2: "Class II Obesity",
+                    obese3: "Class III Obesity"
+                },
+                alert: "Please enter valid values for height and weight."
+            },
+            ar: {
+                resultTitle: "النتيجة",
+                underweight: "نقص الوزن",
+                healthy: "صحيح",
+                overweight: "وزن زائد",
+                obese: "سمنة",
+                yourBmi: "مؤشر كتلة جسمك:",
+                categories: {
+                    underweight: "وزن ناقص",
+                    healthy: "وزن صحي",
+                    overweight: "وزن زائد",
+                    obese1: "سمنة من الدرجة الأولى",
+                    obese2: "سمنة من الدرجة الثانية",
+                    obese3: "سمنة من درجة ثالثة"
+                },
+                alert: "الرجاء إدخال قيم صحيحة للطول والوزن."
+            }
+        };
+
+        // Get current language (you'll need to implement your language switching logic)
+        function getCurrentLang() {
+            // Example: check body class or data attribute
+            return $('body').hasClass('arabic') ? 'ar' : 'en';
+        }
+
+        // Update UI elements with translations
+        function updateTranslations() {
+            const lang = getCurrentLang();
+
+            // Update static elements
+            $('.result-text').text(translations[lang].resultTitle);
+            $('.calc_info_line_underweight').text(translations[lang].underweight);
+            $('.calc_info_line_healthy').text(translations[lang].healthy);
+            $('.calc_info_line_overweight').text(translations[lang].overweight);
+            $('.calc_info_line_obese').text(translations[lang].obese);
+        }
+
+        // Initial translation update
+        updateTranslations();
+
         $('#bmiForm').on('submit', function (e) {
             e.preventDefault();
 
+            const lang = getCurrentLang();
             const heightInput = $('#height').val();
             const weightInput = $('#weight').val();
 
             if (!heightInput || !weightInput || heightInput <= 0 || weightInput <= 0) {
-                alert("الرجاء إدخال قيم صحيحة للطول والوزن.");
+                alert(translations[lang].alert);
                 return;
             }
 
@@ -300,62 +310,59 @@
             const bmi = (weightInput / (heightInMeters * heightInMeters)).toFixed(2);
 
             let category = '';
+            let categoryKey = '';
             let percentage = 0;
 
             if (bmi < 18.5) {
-                category = 'وزن ناقص';
+                categoryKey = 'underweight';
                 percentage = (bmi / 18.5) * 16.666;
-            } else if (bmi >= 18.5 && bmi < 25) {
-                category = 'وزن صحي';
-                percentage = 16.666 + ((bmi - 18.5) / (24.9 - 18.5)) * 16.666;
-            } else if (bmi >= 25 && bmi < 30) {
-                category = 'وزن زائد';
-                percentage = 33.333 + ((bmi - 25) / (29.9 - 25)) * 16.666;
-            } else if (bmi >= 30 && bmi < 35) {
-                category = 'سمنة من الدرجة الأولى';
-                percentage = 50 + ((bmi - 30) / (34.9 - 30)) * 16.666;
-            } else if (bmi >= 35 && bmi < 40) {
-                category = 'سمنة من الدرجة الثانية';
-                percentage = 66.666 + ((bmi - 35) / (39.9 - 35)) * 16.666;
+            } else if (bmi < 25) {
+                categoryKey = 'healthy';
+                percentage = 16.666 + ((bmi - 18.5) / 6.4) * 16.666;
+            } else if (bmi < 30) {
+                categoryKey = 'overweight';
+                percentage = 33.333 + ((bmi - 25) / 5) * 16.666;
+            } else if (bmi < 35) {
+                categoryKey = 'obese1';
+                percentage = 50 + ((bmi - 30) / 5) * 16.666;
+            } else if (bmi < 40) {
+                categoryKey = 'obese2';
+                percentage = 66.666 + ((bmi - 35) / 5) * 16.666;
             } else {
-                category = 'سمنة من درجة ثالثة';
+                categoryKey = 'obese3';
                 percentage = 83.333 + ((bmi - 40) / 10) * 16.666;
             }
 
             percentage = Math.min(Math.max(percentage, 0), 100);
+            category = translations[lang].categories[categoryKey];
 
-            $('.status').text(`مؤشر كتلة جسمك: ${bmi} - ${category}`);
+            // Update result display
+            $('.status').text(`${translations[lang].yourBmi} ${bmi} - ${category}`);
             $('.status').css('background-color',
-                category === 'وزن ناقص' ? 'lightblue' :
-                    category === 'وزن صحي' ? 'lightgreen' :
-                        category === 'وزن زائد' ? 'yellow' :
-                            category === 'سمنة الدرجة الأولى' ? 'orange' :
-                                category === 'سمنة الدرجة الثانية' ? 'red' : 'darkred');
+                categoryKey === 'underweight' ? 'lightblue' :
+                    categoryKey === 'healthy' ? 'lightgreen' :
+                        categoryKey === 'overweight' ? 'yellow' :
+                            categoryKey === 'obese1' ? 'orange' :
+                                categoryKey === 'obese2' ? 'red' : 'darkred');
+
             $('.layout').fadeIn();
-
-            $('.calc_info_line_result_wrapper').css('right', `${percentage}%`);
+            $('.calc_info_line_result_wrapper').css('left', `${percentage}%`);
         });
 
-        // Close the result box on "X" click
-        $('.fa-xmark').on('click', function () {
-            resetLayout();
-        });
-
-        // Close the result box if clicked outside the .result box
+        // Close handlers remain the same
+        $('.fa-xmark').on('click', resetLayout);
         $(document).on('click', function (e) {
-            const layout = $('.layout');
-            const resultBox = $('.result');
-
-            if (layout.is(':visible') && !resultBox.is(e.target) && resultBox.has(e.target).length === 0) {
+            if ($('.layout').is(':visible') && !$('.result').is(e.target) && $('.result').has(e.target).length === 0) {
                 resetLayout();
             }
         });
 
         function resetLayout() {
             $('.layout').fadeOut();
-            $('.calc_info_line_result_wrapper').css('right', '0');
+            $('.calc_info_line_result_wrapper').css('left', '0');
         }
     });
+
 
 
 

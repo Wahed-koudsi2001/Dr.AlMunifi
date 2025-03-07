@@ -150,6 +150,7 @@
     width: 20px;
     max-width: 24px;
     margin-left: 35px;
+    margin-right: 0;
 }
 
 @keyframes scroll-rtl {
@@ -169,6 +170,9 @@
         -o-transform: translateX(0);
     }
 }
+.hc-about-top {
+    text-align: right;
+}
 .single-footer-widget .social,
 .single-footer-widget .departments-list,
 .single-footer-widget .links-list,
@@ -176,16 +180,6 @@
     padding-right: 0;
 }
 
-@media only screen and (max-width: 767px) {
-    .about-content,
-    .our-mission-content ul,
-    .faq-accordion {
-        padding-right: 0;
-    }
-    .partner-item:nth-child(6) {
-        margin-right: initial;
-    }
-}
 .single-footer-widget .opening-hours li span {
     float: left;
 }
@@ -249,4 +243,39 @@ blockquote::after,
 .services-details-desc .wp-block-gallery.columns-3,
 .services-details-desc .services-features-list {
     padding-right: 0;
+}
+.mean-container .mean-nav ul li {
+    text-align: right;
+}
+.whatsapp {
+    right: 25px;
+    left: 0;
+}
+.whatsapp img {
+    margin-left: 14px;
+    margin-right: 0;
+}
+@media (max-width: 991px) {
+    .fovia-responsive-nav .mean-container a.meanmenu-reveal {
+        left: 0 !important;
+        right: auto !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .about-content,
+    .our-mission-content ul,
+    .faq-accordion {
+        padding-right: 0;
+    }
+    .partner-item:nth-child(6) {
+        margin-right: initial;
+    }
+    .whatsapp {
+        right: 12px;
+        left: 0;
+    }
+    .whatsapp img {
+        margin-left: 0;
+    }
 }
