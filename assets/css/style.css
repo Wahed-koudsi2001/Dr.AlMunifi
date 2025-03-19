@@ -1870,7 +1870,7 @@ Our Approach Area CSS
 .approach-image {
   width: 100%;
   height: 100%;
-  background-image: url("../img/our-work.webp");
+  background-image: url("../img/approach.webp");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -2093,15 +2093,6 @@ Services Area CSS
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-.single-services-box.bg-1 {
-  background-image: url(../../assets/img/services/1.jpg);
-}
-.single-services-box.bg-2 {
-  background-image: url(../../assets/img/services/2.jpg);
-}
-.single-services-box.bg-3 {
-  background-image: url(../../assets/img/services/3.jpg);
 }
 .single-services-box .icon {
   text-align: center;
@@ -3027,7 +3018,7 @@ FAQ Area CSS
 .faq-image {
   width: 100%;
   height: 100%;
-  background-image: url(../../assets/img/faq-img1.jpg);
+  background-image: url(../../assets/img/our-work.webp);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -5976,6 +5967,10 @@ Go Top CSS
   margin-right: 14px;
 }
 @media (max-width: 768px) {
+  .blog-details-area,
+  .services-details-area {
+    margin-top: 40px;
+  }
   .whatsapp {
     width: 45px;
     height: 45px;
@@ -6258,12 +6253,16 @@ Go Top CSS
   z-index: 1;
 }
 
+.video-gallery-image a.Infographic::after {
+  content: "\f7e6" !important;
+}
+
 figure {
   margin: 0;
 }
 
 .video-gallery-image img {
-  aspect-ratio: 1 / 0.8;
+  /* aspect-ratio: 1 / 0.8; */
   object-fit: cover;
   border-radius: 20px;
 }
