@@ -5993,6 +5993,9 @@ Go Top CSS
   .single-footer-widget img {
     width: 200px;
   }
+  .main-banner-video {
+    height: calc(100vh - 74px);
+  }
 }
 @keyframes whatsapp {
   0%,
@@ -6383,7 +6386,7 @@ img.mfp-img {
     font-size: 10px;
   }
   button[type="submit"] {
-    padding: 8px 0;
+    padding: 13px 0;
     font-size: 13px;
   }
   .bmi-list > li {

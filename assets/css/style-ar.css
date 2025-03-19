@@ -248,8 +248,8 @@ blockquote::after,
     text-align: right;
 }
 .whatsapp {
-    right: 25px;
-    left: 0;
+    left: 25px;
+    right: initial;
 }
 .whatsapp img {
     margin-left: 14px;
@@ -272,8 +272,8 @@ blockquote::after,
         margin-right: initial;
     }
     .whatsapp {
-        right: 12px;
-        left: 0;
+        left: 12px;
+        right: initial;
     }
     .whatsapp img {
         margin-left: 0;

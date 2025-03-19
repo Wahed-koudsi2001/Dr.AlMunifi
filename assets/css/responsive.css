@@ -993,6 +993,7 @@
     }
     .contact-form form .btn {
         font-size: 14px;
+        width: 100%;
     }
     .contact-info {
         padding-left: 0;
