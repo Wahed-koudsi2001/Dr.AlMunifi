@@ -5994,7 +5994,7 @@ Go Top CSS
     width: 200px;
   }
   .main-banner-video {
-    height: calc(100vh - 74px);
+    height: calc(100vh - 154px);
   }
 }
 @keyframes whatsapp {
