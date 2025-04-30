@@ -2029,48 +2029,6 @@ Our Vision Area CSS
 }
 
 /*================================================
-Fun Facts Area CSS
-=================================================*/
-.fun-facts-area {
-  position: relative;
-  z-index: 1;
-  background-color: #030b58;
-  background-image: url(../../assets/img/map-bg1.png);
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.single-fun-facts {
-  text-align: center;
-}
-.single-fun-facts .icon {
-  font-size: 45px;
-  color: #3dde9e;
-  margin-bottom: 10px;
-}
-.single-fun-facts h3 {
-  color: #ffffff;
-  margin-bottom: 0;
-  position: relative;
-  padding-left: 5px;
-  font-size: 50px;
-  font-weight: 600;
-}
-.single-fun-facts h3 .optional-icon {
-  top: -25px;
-  right: 5px;
-  position: relative;
-  font-size: 25px;
-  font-weight: 300;
-}
-.single-fun-facts p {
-  color: #3dde9e;
-  line-height: initial;
-  margin-top: 5px;
-}
-
-/*================================================
 Services Area CSS
 =================================================*/
 .services-area {
