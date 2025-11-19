@@ -255,6 +255,9 @@ blockquote::after,
     margin-left: 14px;
     margin-right: 0;
 }
+.faq-accordion .accordion .accordion-item{
+    text-align: right;
+}
 @media (max-width: 991px) {
     .fovia-responsive-nav .mean-container a.meanmenu-reveal {
         left: 0 !important;
