@@ -349,7 +349,6 @@
             $('.calc_info_line_result_wrapper').css('left', `${percentage}%`);
         });
 
-        // Close handlers remain the same
         $('.fa-xmark').on('click', resetLayout);
         $(document).on('click', function (e) {
             if ($('.layout').is(':visible') && !$('.result').is(e.target) && $('.result').has(e.target).length === 0) {
@@ -362,10 +361,6 @@
             $('.calc_info_line_result_wrapper').css('left', '0');
         }
     });
-
-
-
-
 
     /* Popup Video */
     if ($('.popup-video').length) {
