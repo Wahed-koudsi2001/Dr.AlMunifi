@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/style-ar.css">
-    <link rel="icon" type="image/png" href="assets/img/favicon.png">
     <title>الدكتور عبدالله المنيفي - الرئيسية</title>
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -189,9 +189,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="circle-shape1"><img src="assets/img/circle-shape1.png" alt="image"></div>
-            <div class="circle-shape2"><img src="assets/img/circle-shape2.png" alt="image"></div>
         </div>
     </div>
     <!-- End Main Banner Area -->
@@ -428,7 +425,8 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <div class="video-gallery-image" data-cursor-text="تشغيل">
-                        <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video">
+                        <a href="https://www.youtube-nocookie.com/embed/4Olc7KZLKEc?rel=0&modestbranding=1&autoplay=1"
+                            class="popup-video">
                             <figure>
                                 <img src="assets/img/video-thumbnails/1.png" alt="video">
                             </figure>
@@ -437,27 +435,30 @@
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="video-gallery-image" data-cursor-text="تشغيل">
-                        <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video">
+                        <a href="https://www.youtube-nocookie.com/embed/4Olc7KZLKEc?rel=0&modestbranding=1&autoplay=1"
+                            class="popup-video">
                             <figure>
-                                <img src="assets/img/video-thumbnails/2.png" alt=video"">
+                                <img src="assets/img/video-thumbnails/2.png" alt="video">
                             </figure>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="video-gallery-image" data-cursor-text="تشغيل">
-                        <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video">
+                        <a href="https://www.youtube-nocookie.com/embed/4Olc7KZLKEc?rel=0&modestbranding=1&autoplay=1"
+                            class="popup-video">
                             <figure>
-                                <img src="assets/img/video-thumbnails/3.png" alt=video"">
+                                <img src="assets/img/video-thumbnails/3.png" alt="video">
                             </figure>
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <div class="video-gallery-image" data-cursor-text="تشغيل">
-                        <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video">
+                        <a href="https://www.youtube-nocookie.com/embed/4Olc7KZLKEc?rel=0&modestbranding=1&autoplay=1"
+                            class="popup-video">
                             <figure>
-                                <img src="assets/img/video-thumbnails/4.png" alt=video"">
+                                <img src="assets/img/video-thumbnails/4.png" alt="video">
                             </figure>
                         </a>
                     </div>
@@ -1120,7 +1121,6 @@
             $caption.removeClass('hide');
         }
 
-
         $(document).ready(function () {
             // Translation object
             const translations = {
@@ -1135,26 +1135,22 @@
                         underweight: "Underweight",
                         healthy: "Healthy Weight",
                         overweight: "Overweight",
-                        obese1: "Class I Obesity",
-                        obese2: "Class II Obesity",
-                        obese3: "Class III Obesity"
+                        obese: "Obesity"
                     },
                     alert: "Please enter valid values for height and weight."
                 },
                 ar: {
                     resultTitle: "النتيجة",
-                    underweight: "نقص الوزن",
-                    healthy: "صحيح",
+                    underweight: "وزن ناقص",
+                    healthy: "وزن طبيعي",
                     overweight: "وزن زائد",
                     obese: "سمنة",
                     yourBmi: "مؤشر كتلة جسمك:",
                     categories: {
                         underweight: "وزن ناقص",
-                        healthy: "وزن صحي",
+                        healthy: "وزن طبيعي",
                         overweight: "وزن زائد",
-                        obese1: "سمنة من الدرجة الأولى",
-                        obese2: "سمنة من الدرجة الثانية",
-                        obese3: "سمنة من درجة ثالثة"
+                        obese: "سمنة"
                     },
                     alert: "الرجاء إدخال قيم صحيحة للطول والوزن."
                 }
@@ -1162,7 +1158,6 @@
 
             // Get current language (you'll need to implement your language switching logic)
             function getCurrentLang() {
-                // Example: check body class or data attribute
                 return $('body').hasClass('arabic') ? 'ar' : 'en';
             }
 
@@ -1170,7 +1165,6 @@
             function updateTranslations() {
                 const lang = getCurrentLang();
 
-                // Update static elements
                 $('.result-text').text(translations[lang].resultTitle);
                 $('.calc_info_line_underweight').text(translations[lang].underweight);
                 $('.calc_info_line_healthy').text(translations[lang].healthy);
@@ -1200,24 +1194,22 @@
                 let categoryKey = '';
                 let percentage = 0;
 
+                // 4 categories only
                 if (bmi < 18.5) {
                     categoryKey = 'underweight';
-                    percentage = (bmi / 18.5) * 16.666;
+                    percentage = (bmi / 18.5) * 25;
                 } else if (bmi < 25) {
                     categoryKey = 'healthy';
-                    percentage = 16.666 + ((bmi - 18.5) / 6.4) * 16.666;
+                    percentage = 25 + ((bmi - 18.5) / 6.4) * 25;
                 } else if (bmi < 30) {
                     categoryKey = 'overweight';
-                    percentage = 33.333 + ((bmi - 25) / 5) * 16.666;
+                    percentage = 50 + ((bmi - 25) / 5) * 25;
                 } else if (bmi < 35) {
-                    categoryKey = 'obese1';
-                    percentage = 50 + ((bmi - 30) / 5) * 16.666;
-                } else if (bmi < 40) {
-                    categoryKey = 'obese2';
-                    percentage = 66.666 + ((bmi - 35) / 5) * 16.666;
+                    categoryKey = 'obese';
+                    percentage = 75 + ((bmi - 30) / 5) * 25;
                 } else {
-                    categoryKey = 'obese3';
-                    percentage = 83.333 + ((bmi - 40) / 10) * 16.666;
+                    categoryKey = 'obese';
+                    percentage = 100;
                 }
 
                 percentage = Math.min(Math.max(percentage, 0), 100);
@@ -1229,14 +1221,14 @@
                     categoryKey === 'underweight' ? 'lightblue' :
                         categoryKey === 'healthy' ? 'lightgreen' :
                             categoryKey === 'overweight' ? 'yellow' :
-                                categoryKey === 'obese1' ? 'orange' :
-                                    categoryKey === 'obese2' ? 'red' : 'darkred');
+                                'orange'
+                );
 
                 $('.layout').fadeIn();
                 $('.calc_info_line_result_wrapper').css('right', `${percentage}%`);
             });
 
-            // Close handlers remain the same
+            // Close handlers
             $('.fa-xmark').on('click', resetLayout);
             $(document).on('click', function (e) {
                 if ($('.layout').is(':visible') && !$('.result').is(e.target) && $('.result').has(e.target).length === 0) {
@@ -1249,6 +1241,7 @@
                 $('.calc_info_line_result_wrapper').css('right', '0');
             }
         });
+
 
     </script>
 </body>

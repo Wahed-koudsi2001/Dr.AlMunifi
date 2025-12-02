@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Graphik Arabic Medium";
-    src: url("../fonts/Graphik_Arabic_Medium.otf") format("opentype");
+    src: url("../fonts/Graphik-Arabic/GraphikArabic-Medium.ttf") format("opentype");
 }
 
 * {
@@ -255,8 +255,32 @@ blockquote::after,
     margin-left: 14px;
     margin-right: 0;
 }
-.faq-accordion .accordion .accordion-item{
+.faq-accordion .accordion .accordion-item {
     text-align: right;
+}
+.doctor-details-image .social {
+    padding-left: initial;
+    padding-right: initial;
+    list-style-type: none;
+    margin-top: 18px;
+    margin-bottom: 0;
+}
+.skill-desc ul {
+    padding-right: 0;
+}
+.skill-desc ul li span {
+    padding-left: 0;
+    padding-right: 40px;
+}
+.skill-desc ul li span i {
+    left: initial;
+    right: 0;
+}
+.education-desc ul {
+    margin-right: -30px;
+}
+.education-desc ul li {
+    padding-right: 0;
 }
 @media (max-width: 991px) {
     .fovia-responsive-nav .mean-container a.meanmenu-reveal {
@@ -280,5 +304,14 @@ blockquote::after,
     }
     .whatsapp img {
         margin-left: 0;
+    }
+    .skill-desc ul li span {
+        padding-left: 28px;
+    }
+    .education-desc ul,
+    .education-desc ul li
+    {
+        padding: 0;
+        margin: 0;
     }
 }
