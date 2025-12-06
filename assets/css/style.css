@@ -21537,7 +21537,7 @@ Doctor Details Area CSS
 }
 
 .skill-education-desc {
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 .skill-desc .sub-title {
@@ -21918,13 +21918,13 @@ Feedback Area CSS
   margin-right: 50px;
   margin-left: 50px;
 }
-.feedback-slides .client-feedback .single-feedback img {
+/* .feedback-slides .client-feedback .single-feedback img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
+} */
 .feedback-slides .client-feedback .single-feedback h3 {
-  margin-bottom: 0;
+  margin-bottom: 10px;
   font-size: 20px;
   font-weight: 700;
 }
@@ -21933,7 +21933,6 @@ Feedback Area CSS
   color: #3dde9e;
   margin-top: 5px;
   margin-bottom: 15px;
-
   font-size: 14px;
 }
 .feedback-slides .client-feedback .single-feedback p {
@@ -25415,9 +25414,9 @@ img.mfp-img {
   }
 }
 @media (max-width: 768px) {
-  .doctor-details-desc .signature-image{
-        width: 90%;
-        margin: 20px auto 0;
+  .doctor-details-desc .signature-image {
+    width: 90%;
+    margin: 20px auto 0;
   }
   .hc-about-top h4 {
     font-size: 28px;

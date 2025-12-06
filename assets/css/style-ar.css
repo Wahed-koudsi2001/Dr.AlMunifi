@@ -282,6 +282,11 @@ blockquote::after,
 .education-desc ul li {
     padding-right: 0;
 }
+.doctor-details-desc {
+    padding-left: 0;
+    padding-right: 20px;
+}
+
 @media (max-width: 991px) {
     .fovia-responsive-nav .mean-container a.meanmenu-reveal {
         left: 0 !important;
@@ -309,8 +314,7 @@ blockquote::after,
         padding-left: 28px;
     }
     .education-desc ul,
-    .education-desc ul li
-    {
+    .education-desc ul li {
         padding: 0;
         margin: 0;
     }
