@@ -55,31 +55,7 @@
 .our-mission-content ul li {
     padding-right: 0;
 }
-.circle-shape1 {
-    left: initial;
-    right: 80px;
-}
-.circle-shape2 {
-    right: 0;
-    left: initial;
-}
 
-.shape2 {
-    right: initial;
-    left: 0;
-}
-.shape3 {
-    left: initial;
-    right: 0;
-}
-.shape33 {
-    left: 0;
-    right: initial;
-}
-.shape1 {
-    right: initial;
-    left: 25px;
-}
 .circle-shape2 img,
 .circle-shape1 img,
 .shape1 img,

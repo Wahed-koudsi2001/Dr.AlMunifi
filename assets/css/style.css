@@ -20898,12 +20898,19 @@ Our Mission Area CSS
 
 .shape3 {
   position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+.shape4 {
+  position: absolute;
   left: 0;
   bottom: 0;
   z-index: -1;
 }
-.shape3 img {
-  opacity: 0.6;
+.shape3 img,
+.shape4 img {
+  opacity: 0.6 !important;
 }
 
 /*================================================
